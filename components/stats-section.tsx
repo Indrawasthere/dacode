@@ -182,7 +182,7 @@ export function StatsSection() {
   }));
 
   return (
-    <section className="relative py-40 overflow-hidden bg-gradient-to-b from-black via-zinc-950 to-black dark:from-black dark:via-zinc-950 dark:to-black">
+    <section className="relative py-40 overflow-hidden bg-linear-to-b from-black via-zinc-950 to-black dark:from-black dark:via-zinc-950 dark:to-black">
       {/* Premium animated grid background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -202,7 +202,7 @@ export function StatsSection() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute -left-[500px] -top-[500px] h-[1000px] w-[1000px] rounded-full bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"
+          className="absolute -left-[500px] -top-[500px] h-[1000px] w-[1000px] rounded-full bg-linear-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"
         />
         <motion.div
           animate={{
@@ -215,7 +215,7 @@ export function StatsSection() {
             ease: "easeInOut",
             delay: 1,
           }}
-          className="absolute -right-[500px] -bottom-[500px] h-[1000px] w-[1000px] rounded-full bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 blur-3xl"
+          className="absolute -right-[500px] -bottom-[500px] h-[1000px] w-[1000px] rounded-full bg-linear-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 blur-3xl"
         />
       </div>
 
@@ -241,7 +241,7 @@ export function StatsSection() {
               delay: particle.delay,
               ease: "easeInOut",
             }}
-            className="absolute h-1 w-1 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 blur-[1px]"
+            className="absolute h-1 w-1 rounded-full bg-linear-to-r from-blue-400 to-purple-400 blur-[1px]"
             style={{ width: particle.size, height: particle.size }}
           />
         ))}
@@ -269,7 +269,7 @@ export function StatsSection() {
             >
               <Sparkles className="h-4 w-4 text-blue-400" />
             </motion.div>
-            <span className="font-medium bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+            <span className="font-medium bg-linear-to-r from-blue-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
               Real metrics, real results
             </span>
             <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500/20">
@@ -282,8 +282,8 @@ export function StatsSection() {
         <motion.div variants={itemVariants} className="text-center mb-20">
           <h2 className="font-cal text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight text-balance">
             <span className="relative inline-block">
-              <span className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 blur-2xl opacity-30" />
-              <span className="relative bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="absolute inset-0 bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 blur-2xl opacity-30" />
+              <span className="relative bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Data-driven
               </span>
             </span>{" "}
@@ -339,22 +339,22 @@ export function StatsSection() {
                 className="group relative"
               >
                 {/* Animated border gradient */}
-                <div className="absolute -inset-px rounded-3xl bg-gradient-to-b from-zinc-800 to-zinc-900 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-px rounded-3xl bg-linear-to-b from-zinc-800 to-zinc-900 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Main card */}
-                <div className="relative h-full rounded-3xl bg-gradient-to-b from-zinc-900 to-zinc-950 p-10 shadow-2xl">
+                <div className="relative h-full rounded-3xl bg-linear-to-b from-zinc-900 to-zinc-950 p-10 shadow-2xl">
                   {/* Hover gradient overlay */}
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-700`}
+                    className={`absolute inset-0 bg-linear-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-700`}
                   />
 
                   {/* Icon with premium effects */}
                   <div className="relative mb-8">
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700`}
+                      className={`absolute inset-0 bg-linear-to-br ${stat.gradient} opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700`}
                     />
                     <div
-                      className={`relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${stat.gradient} shadow-2xl group-hover:scale-110 transition-transform duration-500`}
+                      className={`relative flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-br ${stat.gradient} shadow-2xl group-hover:scale-110 transition-transform duration-500`}
                     >
                       <Icon className="h-8 w-8 text-white" />
                     </div>
@@ -376,7 +376,7 @@ export function StatsSection() {
                           duration: 0.8,
                           ease: [0.21, 0.47, 0.32, 0.98],
                         }}
-                        className="font-cal text-6xl md:text-7xl font-bold bg-gradient-to-b from-white to-zinc-300 bg-clip-text text-transparent"
+                        className="font-cal text-6xl md:text-7xl font-bold bg-linear-to-b from-white to-zinc-300 bg-clip-text text-transparent"
                       >
                         {stat.number === 1000 ? (
                           <CountUp target={1000} suffix="+" />
@@ -413,7 +413,7 @@ export function StatsSection() {
                     </span>
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 45 }}
-                      className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-zinc-800 to-zinc-900 group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-500 shadow-lg"
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-zinc-800 to-zinc-900 group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-500 shadow-lg"
                     >
                       <ArrowUpRight className="h-5 w-5 text-zinc-400 group-hover:text-white transition-colors duration-500" />
                     </motion.div>
@@ -428,7 +428,7 @@ export function StatsSection() {
                     className="absolute bottom-0 left-0 right-0 h-1 rounded-b-3xl overflow-hidden"
                   >
                     <div
-                      className={`absolute inset-0 bg-gradient-to-r ${stat.gradient} opacity-30`}
+                      className={`absolute inset-0 bg-linear-to-r ${stat.gradient} opacity-30`}
                     />
                     <motion.div
                       animate={{ x: ["-100%", "100%"] }}
@@ -437,7 +437,7 @@ export function StatsSection() {
                         repeat: Infinity,
                         ease: "linear",
                       }}
-                      className={`absolute inset-0 w-1/2 bg-gradient-to-r ${stat.gradient} blur-md`}
+                      className={`absolute inset-0 w-1/2 bg-linear-to-r ${stat.gradient} blur-md`}
                     />
                   </motion.div>
                 </div>
@@ -449,7 +449,7 @@ export function StatsSection() {
         {/* Enhanced metrics bar with premium styling */}
         <motion.div variants={itemVariants} className="mt-28 relative">
           {/* Decorative separator */}
-          <div className="absolute -top-14 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
+          <div className="absolute -top-14 left-1/2 -translate-x-1/2 w-24 h-px bg-linear-to-r from-transparent via-zinc-700 to-transparent" />
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12">
             {[
@@ -493,11 +493,11 @@ export function StatsSection() {
                   whileHover={{ y: -5 }}
                   className="group relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-b from-zinc-800/0 to-zinc-800/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-b from-zinc-800/0 to-zinc-800/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   <div className="relative p-4 rounded-2xl">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-zinc-800 to-zinc-900 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-all duration-500">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-linear-to-br from-zinc-800 to-zinc-900 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-all duration-500">
                         <MetricIcon className="h-5 w-5 text-zinc-500 group-hover:text-blue-400 transition-colors duration-500" />
                       </div>
                       <span className="text-xs font-medium uppercase tracking-wider text-zinc-600 group-hover:text-zinc-400 transition-colors duration-500">
@@ -529,7 +529,7 @@ export function StatsSection() {
                           whileInView={{ height }}
                           viewport={{ once: true }}
                           transition={{ delay: 1 + idx * 0.05, duration: 0.5 }}
-                          className={`w-1.5 bg-gradient-to-t ${
+                          className={`w-1.5 bg-linear-to-t ${
                             i === 0
                               ? "from-blue-500 to-cyan-500"
                               : i === 1

@@ -1,221 +1,157 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Sparkles,
-  Calendar,
-  CheckCircle,
-  Zap,
-  TrendingUp,
-} from "lucide-react";
-import { motion } from "framer-motion";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.21, 0.47, 0.32, 0.98],
-    },
-  },
-};
-
-const floatingVariants = {
-  float: {
-    y: [0, -12, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
+import { ArrowRight, Mail, Terminal } from "lucide-react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 export function CTASection() {
-  return (
-    <section className="relative py-32 overflow-hidden bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 dark:from-blue-950 dark:via-purple-950 dark:to-pink-950">
-      {/* Vercel-style grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)]" />
+  const containerRef = useRef<HTMLDivElement>(null);
 
-      {/* Animated gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.2, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute -left-[400px] -top-[400px] h-[800px] w-[800px] rounded-full bg-white/20 blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-          className="absolute -right-[400px] -bottom-[400px] h-[800px] w-[800px] rounded-full bg-white/20 blur-3xl"
-        />
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Parallax & Smooth Scaling
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.9, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  const smoothScale = useSpring(scale, { stiffness: 100, damping: 30 });
+  const smoothY = useSpring(y, { stiffness: 100, damping: 30 });
+
+  return (
+    <section
+      ref={containerRef}
+      className="relative py-80 bg-[#050505] overflow-hidden"
+      id="contact"
+    >
+      {/* --- BACKGROUND ARCHITECTURE --- */}
+      <div className="absolute inset-0 z-0">
+        {/* Deep Radial Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.05)_0%,transparent_70%)]" />
+
+        {/* Micro-Grid Texture */}
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] brightness-100 contrast-150 pointer-events-none" />
+
+        {/* Cinematic Warp Lines */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute bg-gradient-to-r from-transparent via-sky-500/10 to-transparent h-[1px] w-full"
+            style={{
+              top: `${15 + i * 12}%`,
+              left: "-100%",
+              rotate: "-2deg",
+            }}
+            animate={{ left: ["100%", "-100%"] }}
+            transition={{
+              duration: 8 + i,
+              repeat: Infinity,
+              ease: "linear",
+              delay: i * 0.5,
+            }}
+          />
+        ))}
       </div>
 
+      {/* --- CONTENT BLOCK --- */}
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="container relative mx-auto px-4 z-10"
+        style={{ opacity, scale: smoothScale, y: smoothY }}
+        className="container relative mx-auto max-w-6xl px-8 z-10"
       >
-        <motion.div
-          variants={itemVariants}
-          className="max-w-4xl mx-auto text-center"
-        >
-          {/* Floating icon */}
-          <motion.div
-            variants={floatingVariants}
-            animate="float"
-            className="flex justify-center mb-8"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 animate-pulse rounded-full bg-white/30 blur-xl" />
-              <div className="relative flex h-20 w-20 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl">
-                <Sparkles className="h-10 w-10 text-white" />
+        <div className="relative rounded-[3rem] border border-white/[0.03] bg-[#080808]/80 p-12 md:p-32 overflow-hidden backdrop-blur-3xl shadow-2xl">
+          {/* Edge Glows */}
+          <div className="absolute -top-40 -left-40 h-[400px] w-[400px] bg-sky-500/[0.05] blur-[120px] rounded-full" />
+          <div className="absolute -bottom-40 -right-40 h-[400px] w-[400px] bg-emerald-500/[0.05] blur-[120px] rounded-full" />
+
+          <div className="relative z-10 text-center">
+            {/* Status Indicator */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-zinc-900/50 border border-white/5 mb-12"
+            >
+              <div className="relative flex h-2 w-2">
+                <span className="animate-ping absolute h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span className="relative h-2 w-2 rounded-full bg-sky-500"></span>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Trust badge */}
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-xl px-4 py-2 text-sm border border-white/20 mb-6"
-          >
-            <CheckCircle className="h-4 w-4 text-white" />
-            <span className="font-medium text-white">
-              Trusted by 500+ agencies
-            </span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h2
-            variants={itemVariants}
-            className="font-cal text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 text-balance"
-          >
-            Ready to transform
-            <br />
-            your agency?
-          </motion.h2>
-
-          {/* Subheading */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
-            Partner with us and deliver conversion-focused websites that drive
-            real results. Let's scale your agency together.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
-          >
-            <Button
-              size="lg"
-              className="group relative h-14 overflow-hidden rounded-full bg-white px-8 text-base font-semibold text-zinc-900 shadow-lg shadow-black/10 transition-all hover:scale-105 hover:shadow-xl"
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                Start scaling
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <span className="text-[10px] font-sans font-bold text-zinc-400 uppercase tracking-[0.4em]">
+                Project_Initialization_Ready
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-zinc-100 to-white opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Button>
+            </motion.div>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="group h-14 rounded-full border-white/30 bg-white/10 px-8 text-base font-semibold text-white backdrop-blur-xl transition-all hover:scale-105 hover:bg-white/20 hover:border-white/40"
-            >
-              <Calendar className="mr-2 h-4 w-4" />
-              Book a free call
-            </Button>
-          </motion.div>
+            <h2 className="text-6xl md:text-[9rem] font-sans font-bold tracking-tighter text-white leading-[0.85] mb-12">
+              Let&apos;s build the <br />
+              <span className="font-serif italic text-zinc-700 font-light">
+                new standard.
+              </span>
+            </h2>
 
-          {/* Social proof with metrics */}
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto pt-8 border-t border-white/20"
-          >
-            {[
-              { label: "Projects delivered", value: "1,000+", icon: Zap },
-              { label: "Avg. conversion lift", value: "85%", icon: TrendingUp },
-              { label: "Agency partners", value: "500+", icon: Sparkles },
-              { label: "Response time", value: "< 2hrs", icon: Calendar },
-            ].map((stat, i) => {
-              const StatIcon = stat.icon;
-              return (
-                <div key={i} className="text-center">
-                  <div className="flex items-center justify-center gap-1.5 mb-1">
-                    <StatIcon className="h-4 w-4 text-white/80" />
-                    <span className="font-cal text-lg font-bold text-white">
-                      {stat.value}
-                    </span>
-                  </div>
-                  <span className="text-xs text-white/70">{stat.label}</span>
-                </div>
-              );
-            })}
-          </motion.div>
+            <p className="text-xl md:text-2xl text-zinc-500 max-w-3xl mx-auto mb-20 leading-relaxed font-sans font-light">
+              We don&apos;t just ship code. We engineer unfair technological
+              advantages.
+              <span className="text-zinc-200">
+                {" "}
+                Ready to deploy your enterprise ecosystem?
+              </span>
+            </p>
 
-          {/* Bottom note */}
-          <motion.p
-            variants={itemVariants}
-            className="text-sm text-white/70 mt-8 flex items-center justify-center gap-2"
-          >
-            <span>✨ No commitment required</span>
-            <span className="w-1 h-1 rounded-full bg-white/40" />
-            <span>🎯 Free consultation</span>
-            <span className="w-1 h-1 rounded-full bg-white/40" />
-            <span>⚡ Response within 24h</span>
-          </motion.p>
+            {/* CTA BUTTONS - Breathable Spacing */}
+            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+              <Button
+                size="lg"
+                className="h-20 px-12 rounded-2xl bg-white text-black hover:bg-zinc-200 text-sm font-sans font-bold tracking-[0.2em] uppercase transition-all duration-500 group shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+              >
+                Initiate Project
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-500" />
+              </Button>
 
-          {/* Company logos preview */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-12 flex items-center justify-center gap-6 opacity-70"
-          >
-            <span className="text-xs font-medium uppercase tracking-wider text-white/60">
-              Join agencies from
-            </span>
-            <div className="flex items-center gap-4">
-              {["Vercel", "Next.js", "Clerk", "shadcn"].map((company) => (
-                <span key={company} className="text-sm font-cal text-white/80">
-                  {company}
-                </span>
+              <Button
+                variant="outline"
+                size="lg"
+                className="h-20 px-12 rounded-2xl border-zinc-800 bg-transparent text-white hover:bg-zinc-900 text-sm font-sans font-bold tracking-[0.2em] uppercase transition-all duration-500"
+              >
+                <Terminal className="mr-3 h-5 w-5 text-sky-500" />
+                Talk to Lead Architect
+              </Button>
+            </div>
+
+            {/* Architecture Details */}
+            <div className="mt-32 grid grid-cols-2 md:grid-cols-4 gap-12 border-t border-white/[0.03] pt-16">
+              {[
+                { label: "Protocol", val: "Enterprise-Grade" },
+                { label: "SLA", val: "99.99% Uptime" },
+                { label: "Engine", val: "Proprietary AI" },
+                { label: "Stack", val: "Edge-Native" },
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.5 + i * 0.1 }}
+                  className="text-center md:text-left space-y-2"
+                >
+                  <p className="text-[9px] font-sans font-bold text-zinc-600 uppercase tracking-[0.3em]">
+                    {stat.label}
+                  </p>
+                  <p className="text-sm font-sans font-bold text-zinc-400">
+                    {stat.val}
+                  </p>
+                </motion.div>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
+
+        {/* Final Branding Footer Signal */}
+        <div className="mt-20 flex justify-center opacity-20 hover:opacity-100 transition-opacity duration-1000">
+          <p className="text-[10px] font-sans font-bold tracking-[1em] text-white uppercase">
+            DACODE SYSTEMS © 2026
+          </p>
+        </div>
       </motion.div>
     </section>
   );

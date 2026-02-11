@@ -367,7 +367,7 @@ html {
 
 /* Gradient Text */
 .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70;
+    @apply bg-clip-text text-transparent bg-linear-to-r from-primary to-primary/70;
 }
 
 /* Card Hover Effect */

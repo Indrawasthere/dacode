@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CustomCursor } from "@/components/cursor";
 import { Header } from "@/components/header";
 import { cn } from "@/lib/utils";
 import "./globals.css";
@@ -59,6 +60,7 @@ export default function RootLayout({
           "font-sans antialiased min-h-screen bg-white dark:bg-zinc-950",
         )}
       >
+        <CustomCursor />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -109,7 +109,7 @@ export function FAQSection() {
       : faqs.filter((f) => f.category === activeCategory);
 
   return (
-    <section className="relative py-32 overflow-hidden bg-gradient-to-b from-white to-zinc-50/50 dark:from-zinc-950 dark:to-zinc-900/50">
+    <section className="relative py-32 overflow-hidden bg-linear-to-b from-white to-zinc-50/50 dark:from-zinc-950 dark:to-zinc-900/50">
       {/* Vercel-style grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)]" />
 
@@ -140,7 +140,7 @@ export function FAQSection() {
 
           <h2 className="font-cal text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-balance mb-6">
             Questions{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               answered
             </span>
           </h2>
@@ -260,13 +260,13 @@ export function FAQSection() {
             <div className="relative z-10">
               <div className="flex justify-center mb-4">
                 <div className="flex -space-x-2">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-blue-500 to-cyan-500">
                     <MessageCircle className="h-5 w-5 text-white" />
                   </div>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-purple-500 to-pink-500">
                     <Mail className="h-5 w-5 text-white" />
                   </div>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-emerald-500 to-teal-500">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-br from-emerald-500 to-teal-500">
                     <Zap className="h-5 w-5 text-white" />
                   </div>
                 </div>

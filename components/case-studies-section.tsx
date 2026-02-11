@@ -126,7 +126,7 @@ export function CaseStudiesSection() {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
+    <section className="relative py-32 overflow-hidden bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-900">
       {/* Vercel-style grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)] dark:bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)]" />
 
@@ -160,7 +160,7 @@ export function CaseStudiesSection() {
             className="font-cal text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-balance mb-6"
           >
             Real{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               results
             </span>
             ,<br />
@@ -197,7 +197,7 @@ export function CaseStudiesSection() {
               >
                 {/* Gradient overlay on hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${study.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  className={`absolute inset-0 bg-linear-to-br ${study.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                 />
 
                 {/* Image Container */}
@@ -209,13 +209,13 @@ export function CaseStudiesSection() {
                     animate={isHovered ? { scale: 1.08 } : { scale: 1 }}
                     transition={{ duration: 0.6 }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
 
                   {/* Category badge */}
                   <div className="absolute top-4 left-4">
                     <div className="inline-flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5 text-xs font-medium text-zinc-900 shadow-lg dark:bg-zinc-900/90 dark:text-zinc-100">
                       <div
-                        className={`h-2 w-2 rounded-full bg-gradient-to-r ${study.gradient}`}
+                        className={`h-2 w-2 rounded-full bg-linear-to-r ${study.gradient}`}
                       />
                       {study.category}
                     </div>
@@ -234,7 +234,7 @@ export function CaseStudiesSection() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="inline-flex items-center gap-2">
                       <div
-                        className={`flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br ${study.gradient} shadow-lg`}
+                        className={`flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br ${study.gradient} shadow-lg`}
                       >
                         <IconComponent className="h-4 w-4 text-white" />
                       </div>
@@ -256,7 +256,7 @@ export function CaseStudiesSection() {
                   <div className="flex items-baseline gap-3 mb-4">
                     <div className="flex items-center gap-2">
                       <span
-                        className={`font-cal text-4xl font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent`}
+                        className={`font-cal text-4xl font-bold bg-linear-to-r ${study.gradient} bg-clip-text text-transparent`}
                       >
                         {study.metric}
                       </span>
@@ -293,7 +293,7 @@ export function CaseStudiesSection() {
                             className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300"
                           >
                             <div
-                              className={`h-1.5 w-1.5 rounded-full bg-gradient-to-r ${study.gradient}`}
+                              className={`h-1.5 w-1.5 rounded-full bg-linear-to-r ${study.gradient}`}
                             />
                             {result}
                           </li>
@@ -325,7 +325,7 @@ export function CaseStudiesSection() {
         <motion.div variants={itemVariants} className="mt-20 text-center">
           <Button
             size="lg"
-            className="group relative h-12 overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 font-medium text-white shadow-lg shadow-blue-600/25 transition-all hover:scale-105 hover:shadow-xl dark:from-blue-500 dark:to-purple-500"
+            className="group relative h-12 overflow-hidden rounded-full bg-linear-to-r from-blue-600 to-purple-600 px-8 font-medium text-white shadow-lg shadow-blue-600/25 transition-all hover:scale-105 hover:shadow-xl dark:from-blue-500 dark:to-purple-500"
           >
             <span className="relative z-10 flex items-center gap-2">
               View All Case Studies
