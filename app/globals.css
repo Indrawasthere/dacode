@@ -1,0 +1,417 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    /* Slate Theme - Light Mode (Clean & Professional) */
+    --background: oklch(0.985 0.003 250);
+    --foreground: oklch(0.21 0.044 263);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.21 0.044 263);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.21 0.044 263);
+    --primary: oklch(0.21 0.044 263);
+    --primary-foreground: oklch(0.98 0.005 255);
+    --secondary: oklch(0.94 0.01 255);
+    --secondary-foreground: oklch(0.28 0.04 260);
+    --muted: oklch(0.94 0.01 255);
+    --muted-foreground: oklch(0.55 0.016 285);
+    --accent: oklch(0.94 0.01 255);
+    --accent-foreground: oklch(0.21 0.044 263);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.99 0 0);
+    --border: oklch(0.88 0.02 255);
+    --input: oklch(0.88 0.02 255);
+    --ring: oklch(0.21 0.044 263);
+    --radius: 0.75rem;
+
+    /* Sidebar Slate Light */
+    --sidebar: oklch(0.98 0.005 255);
+    --sidebar-foreground: oklch(0.21 0.044 263);
+    --sidebar-primary: oklch(0.21 0.044 263);
+    --sidebar-primary-foreground: oklch(0.98 0.005 255);
+    --sidebar-accent: oklch(0.94 0.01 255);
+    --sidebar-accent-foreground: oklch(0.21 0.044 263);
+    --sidebar-border: oklch(0.88 0.02 255);
+    --sidebar-ring: oklch(0.7 0.04 256);
+
+    /* Charts Slate Light */
+    --chart-1: oklch(0.55 0.016 285);
+    --chart-2: oklch(0.444 0.041 260);
+    --chart-3: oklch(0.35 0.04 260);
+    --chart-4: oklch(0.25 0.04 260);
+    --chart-5: oklch(0.65 0.02 260);
+}
+
+.dark {
+    /* Slate Theme - Dark Mode (Deep Blue-Grey) */
+    --background: oklch(0.13 0.04 264);
+    --foreground: oklch(0.98 0.005 255);
+    --card: oklch(0.15 0.04 264);
+    --card-foreground: oklch(0.98 0.005 255);
+    --popover: oklch(0.13 0.04 264);
+    --popover-foreground: oklch(0.98 0.005 255);
+    --primary: oklch(0.98 0.005 255);
+    --primary-foreground: oklch(0.13 0.04 264);
+    --secondary: oklch(0.28 0.04 260);
+    --secondary-foreground: oklch(0.98 0.005 255);
+    --muted: oklch(0.28 0.04 260);
+    --muted-foreground: oklch(0.7 0.04 256);
+    --accent: oklch(0.28 0.04 260);
+    --accent-foreground: oklch(0.98 0.005 255);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.28 0.04 260);
+    --input: oklch(0.28 0.04 260);
+    --ring: oklch(0.7 0.04 256);
+
+    /* Sidebar Dark */
+    --sidebar: oklch(0.15 0.04 264);
+    --sidebar-foreground: oklch(0.98 0.005 255);
+    --sidebar-primary: oklch(0.98 0.005 255);
+    --sidebar-primary-foreground: oklch(0.13 0.04 264);
+    --sidebar-accent: oklch(0.28 0.04 260);
+    --sidebar-accent-foreground: oklch(0.98 0.005 255);
+    --sidebar-border: oklch(0.28 0.04 260);
+    --sidebar-ring: oklch(0.7 0.04 256);
+
+    /* Charts Slate Dark */
+    --chart-1: oklch(0.65 0.02 260);
+    --chart-2: oklch(0.55 0.02 260);
+    --chart-3: oklch(0.45 0.02 260);
+    --chart-4: oklch(0.35 0.02 260);
+    --chart-5: oklch(0.75 0.02 260);
+}
+
+@theme inline {
+    /* Font Update */
+    --font-sans: "Inter", "Inter Fallback", ui-sans-serif;
+    --font-serif: "Playfair Display", "Playfair Fallback", ui-serif;
+    --font-mono: "Geist Mono", "Geist Mono Fallback";
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-background text-foreground font-sans antialiased;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-serif;
+    }
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+}
+
+/* Selection Color */
+::selection {
+    @apply bg-primary/20 text-foreground;
+}
+
+/* Focus Visible Ring */
+*:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}
+
+/* Animation Utilities */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.2);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(var(--primary-rgb), 0.4);
+    }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-shimmer {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Stagger Animation Delays */
+.stagger-1 {
+    animation-delay: 0.1s;
+}
+.stagger-2 {
+    animation-delay: 0.2s;
+}
+.stagger-3 {
+    animation-delay: 0.3s;
+}
+.stagger-4 {
+    animation-delay: 0.4s;
+}
+.stagger-5 {
+    animation-delay: 0.5s;
+}
+.stagger-6 {
+    animation-delay: 0.6s;
+}
+
+/* Hover Effects */
+.hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+}
+
+.hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/20;
+}
+
+.hover-border-primary {
+    @apply transition-colors duration-300 hover:border-primary;
+}
+
+/* Glass Effect */
+.glass {
+    @apply bg-background/80 backdrop-blur-sm;
+}
+
+.glass-light {
+    @apply bg-white/10 backdrop-blur-md;
+}
+
+/* Gradient Text */
+.gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70;
+}
+
+/* Card Hover Effect */
+.card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/30;
+}
+
+/* Button Hover Effect */
+.btn-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 active:translate-y-0;
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll-seamless {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-3096px));
+    }
+}
+
+.animate-scroll-seamless {
+    animation: scroll-seamless 35s linear infinite;
+}
+
+.animate-scroll-seamless:hover {
+    animation-play-state: paused;
+}
+
+/* Portfolio Scroll Animation */
+@keyframes portfolio-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-portfolio-scroll {
+    animation: portfolio-scroll 40s linear infinite;
+}
+
+.animate-portfolio-scroll:hover {
+    animation-play-state: paused;
+}
