@@ -4,7 +4,6 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CustomCursor } from "@/components/cursor";
-import { Header } from "@/components/header";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
@@ -20,29 +19,32 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dacode - Data-Driven Web Design for Agencies",
+  title: "Dacode - Enterprise Software Engineering",
   description:
-    "Websites That Convert. A Design Partner That Sticks Around. Deploy. Scale. Ship faster with modern web technologies.",
-  generator: "v0.app",
+    "Building resilient infrastructures and intelligent ecosystems for the next era of business.",
+  generator: "Next.js",
   keywords: [
+    "enterprise software",
+    "web development",
     "nextjs",
-    "vercel",
-    "shadcn",
-    "react",
-    "deployment",
-    "web design",
-    "agencies",
+    "typescript",
+    "ai integration",
+    "crm",
+    "hris",
+    "wms",
   ],
   authors: [{ name: "Dacode.io" }],
   openGraph: {
-    title: "Dacode - Data-Driven Web Design for Agencies",
-    description: "Websites That Convert. A Design Partner That Sticks Around.",
+    title: "Dacode - Enterprise Software Engineering",
+    description:
+      "Building resilient infrastructures and intelligent ecosystems.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dacode - Data-Driven Web Design for Agencies",
-    description: "Websites That Convert. A Design Partner That Sticks Around.",
+    title: "Dacode - Enterprise Software Engineering",
+    description:
+      "Building resilient infrastructures and intelligent ecosystems.",
   },
 };
 
@@ -57,20 +59,17 @@ export default function RootLayout({
         className={cn(
           inter.variable,
           playfair.variable,
-          "font-sans antialiased min-h-screen bg-white dark:bg-zinc-950",
+          "font-sans antialiased min-h-screen bg-black",
         )}
       >
         <CustomCursor />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-          </div>
+          {children}
         </ThemeProvider>
         <Analytics />
       </body>

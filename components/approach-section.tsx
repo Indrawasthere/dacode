@@ -13,7 +13,6 @@ import { useRef } from "react";
 export function ApproachSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // 1. Scroll Progress for Line & Reveal
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start center", "end center"],
@@ -25,7 +24,6 @@ export function ApproachSection() {
     restDelta: 0.001,
   });
 
-  // 2. Opacity Reveal based on scroll (Biar text muncul pelan pas di-scroll)
   const opacityValue = useTransform(
     scrollYProgress,
     [0, 0.1, 0.9, 1],
@@ -71,13 +69,10 @@ export function ApproachSection() {
       className="relative py-60 bg-[#050505] overflow-hidden"
       id="process"
     >
-      {/* Background Noise & Dynamic Glow */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      {/* --- BREATHABLE CONTAINER (WIDE MARGINS) --- */}
       <div className="container relative mx-auto max-w-6xl px-8 md:px-12 z-10">
-        {/* Header - Silicon Valley Alignment */}
         <div className="max-w-3xl mb-40">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
@@ -101,15 +96,12 @@ export function ApproachSection() {
           </motion.h2>
         </div>
 
-        {/* The Kinetic Timeline */}
         <div className="relative">
-          {/* Main Tracing Line (Desktop) */}
-          <div className="absolute top-[3.5rem] left-0 w-full h-[1px] bg-zinc-900 hidden lg:block">
+          <div className="absolute top-14 left-0 w-full h-px bg-zinc-900 hidden lg:block">
             <motion.div
               style={{ scaleX, originX: 0 }}
-              className="h-full bg-gradient-to-r from-transparent via-sky-500 to-white shadow-[0_0_20px_rgba(56,189,248,0.4)] relative"
+              className="h-full bg-linear-to-r from-transparent via-sky-500 to-white shadow-[0_0_20px_rgba(56,189,248,0.4)] relative"
             >
-              {/* The "Leading Edge" Light */}
               <div className="absolute right-0 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-white shadow-[0_0_15px_#fff]" />
             </motion.div>
           </div>
@@ -124,7 +116,6 @@ export function ApproachSection() {
                 viewport={{ once: true }}
                 className="group relative"
               >
-                {/* Step Icon with Magnetic-like Hover */}
                 <div className="relative z-20 mb-12">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
@@ -133,13 +124,11 @@ export function ApproachSection() {
                     <step.icon className="h-7 w-7 text-zinc-600 group-hover:text-white transition-colors duration-500 stroke-[1.5px]" />
                   </motion.div>
 
-                  {/* Step Number Overlay */}
                   <div className="absolute -top-3 -right-3 text-[10px] font-sans font-black text-zinc-800 group-hover:text-sky-500 transition-colors tracking-tighter">
                     {step.number} /
                   </div>
                 </div>
 
-                {/* Content - Sophisticated Typography */}
                 <div className="space-y-4 pr-4">
                   <h3 className="text-xl font-sans font-semibold text-white tracking-tight group-hover:text-sky-400 transition-colors">
                     {step.title}
@@ -149,16 +138,14 @@ export function ApproachSection() {
                   </p>
                 </div>
 
-                {/* Vertical Line for Mobile (Seamless Connection) */}
                 {index !== steps.length - 1 && (
-                  <div className="absolute left-10 top-24 bottom-[-64px] w-[1px] bg-gradient-to-b from-zinc-800 to-transparent lg:hidden -z-10" />
+                  <div className="absolute left-10 top-24 bottom-16 w-px bg-linear-to-b from-zinc-800 to-transparent lg:hidden -z-10" />
                 )}
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Bottom Metrics - Minimalist Grid */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

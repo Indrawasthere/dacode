@@ -1,5 +1,5 @@
-import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
+import { Header } from "@/components/header";
 import { EcosystemSection } from "@/components/services-section";
 import { ApproachSection } from "@/components/approach-section";
 import { PricingSection } from "@/components/pricing-section";
