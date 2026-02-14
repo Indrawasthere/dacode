@@ -69,7 +69,7 @@ export function Hero() {
         />
 
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.12] mix-blend-overlay" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_60%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-size[64px_64px] mask-image[radial-gradient(ellipse_80%_80%_at_50%_50%,#000_60%,transparent_100%)]" />
       </motion.div>
 
       <motion.div
@@ -88,7 +88,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/[0.02] px-4 py-1.5 backdrop-blur-3xl mb-12 shadow-2xl"
+          className="inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/2 px-4 py-1.5 backdrop-blur-3xl mb-12 shadow-2xl"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -171,7 +171,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 1 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-16 border-t border-white/[0.03] max-w-5xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-16 border-t border-white/3 max-w-5xl mx-auto"
         >
           {[
             { label: "Stability", val: "99.99%" },

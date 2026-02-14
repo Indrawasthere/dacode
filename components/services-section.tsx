@@ -50,9 +50,7 @@ export function EcosystemSection() {
 
   return (
     <section className="relative py-60 bg-[#050505] overflow-hidden">
-      {/* 1. BREATHABLE CONTAINER: Limit width to 6xl and add significant X-padding */}
       <div className="container mx-auto max-w-6xl px-8 md:px-12">
-        {/* Header - Narrower for better focus */}
         <div className="max-w-2xl mb-32">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
@@ -73,7 +71,6 @@ export function EcosystemSection() {
           </h2>
         </div>
 
-        {/* Tab Navigation - Minimalist & Spaced */}
         <div className="flex flex-wrap gap-8 mb-16 border-b border-zinc-900 pb-2">
           {SUITES.map((suite) => (
             <button
@@ -89,15 +86,14 @@ export function EcosystemSection() {
               {activeTab.id === suite.id && (
                 <motion.div
                   layoutId="activeTabUnderline"
-                  className="absolute bottom-[-1px] left-0 right-0 h-[2px] bg-blue-500 z-10"
+                  className="absolute bottom-px left-0 right-0 h-2 bg-blue-500 z-10"
                 />
               )}
             </button>
           ))}
         </div>
 
-        {/* Content Area - Increased padding and gap */}
-        <div className="relative min-h-[500px]">
+        <div className="relative min-h-125">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab.id}
@@ -107,7 +103,6 @@ export function EcosystemSection() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start"
             >
-              {/* Text Side - Occupies 5 columns */}
               <div className="lg:col-span-5 pt-4">
                 <h3 className="text-3xl font-sans font-medium text-white mb-8 tracking-tight">
                   {activeTab.title}
@@ -122,7 +117,7 @@ export function EcosystemSection() {
                       key={i}
                       className="flex items-center gap-4 text-zinc-400 text-sm font-sans font-light"
                     >
-                      <div className="h-[1px] w-4 bg-zinc-800" />
+                      <div className="h-px w-4 bg-zinc-800" />
                       {feat}
                     </li>
                   ))}
@@ -137,18 +132,15 @@ export function EcosystemSection() {
                 </motion.button>
               </div>
 
-              {/* Image Side - Occupies 7 columns */}
               <div className="lg:col-span-7 relative">
-                <div className="aspect-[4/3] bg-[#080808] rounded-2xl border border-zinc-900 flex items-center justify-center overflow-hidden group shadow-2xl">
+                <div className="aspect-4/3 bg-[#080808] rounded-2xl border border-zinc-900 flex items-center justify-center overflow-hidden group shadow-2xl">
                   {/* Background Aura */}
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]" />
 
-                  {/* Ganti div ini sama image beneran lu bre */}
                   <div className="relative z-10 text-zinc-800 font-mono text-[10px] tracking-[0.5em] uppercase border border-zinc-900/50 px-6 py-3 rounded-full">
                     {activeTab.imagePlaceholder}
                   </div>
 
-                  {/* Floating Tech Badge */}
                   <motion.div
                     animate={{ y: [0, -10, 0] }}
                     transition={{
@@ -156,13 +148,12 @@ export function EcosystemSection() {
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="absolute top-10 right-10 p-4 backdrop-blur-3xl bg-white/[0.01] border border-white/5 rounded-2xl shadow-2xl"
+                    className="absolute top-10 right-10 p-4 backdrop-blur-3xl bg-white/1 border border-white/5 rounded-2xl shadow-2xl"
                   >
                     <Shield className="w-5 h-5 text-blue-500/50" />
                   </motion.div>
                 </div>
 
-                {/* Decorative background element for depth */}
                 <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-500/5 blur-[100px] rounded-full -z-10" />
               </div>
             </motion.div>

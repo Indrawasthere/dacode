@@ -115,7 +115,7 @@ export function Header() {
             size="sm"
             className="h-9 px-6 rounded-full bg-white text-black hover:bg-zinc-200 text-[11px] font-bold uppercase tracking-wider transition-transform active:scale-95 shadow-xl hidden sm:flex items-center gap-2"
           >
-            Get Started
+            Let's Begin
             <ArrowRight className="h-3 w-3" />
           </Button>
 
@@ -134,7 +134,7 @@ export function Header() {
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            className="fixed inset-x-4 top-24 bg-black/90 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 md:hidden z-[90] shadow-2xl pointer-events-auto"
+            className="fixed inset-x-4 top-24 bg-black/90 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 md:hidden z-90 shadow-2xl pointer-events-auto"
           >
             <div className="flex flex-col gap-4">
               {navItems.map((item, i) => (

@@ -129,14 +129,14 @@ export default function ServicesPage() {
           {[...techs, ...techs].map((tech, i) => (
             <div key={i} className="flex items-center gap-4">
               <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-              <span className="text-[11px] font-mono uppercase tracking-[0.3em] text-zinc-400 font-bold">
+              <span className="text-[11px] font-sans uppercase tracking-[0.3em] text-zinc-400 font-bold">
                 {tech}
               </span>
             </div>
           ))}
         </motion.div>
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-linear-to-r from-black to-transparent z-10" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-linear-to-l from-black to-transparent z-10" />
       </div>
 
       <section className="py-24 bg-black">
@@ -152,7 +152,7 @@ export default function ServicesPage() {
                   viewport={{ once: true }}
                   className="group relative bg-black p-12 transition-colors hover:bg-zinc-950"
                 >
-                  <div className="absolute inset-0 bg-blue-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-blue-500/2 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                   <div className="relative z-10">
                     <div className="mb-8 text-zinc-500 group-hover:text-white transition-colors">

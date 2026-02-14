@@ -32,12 +32,10 @@ export function Footer() {
 
   return (
     <footer className="relative bg-[#030303] pt-32 pb-12 overflow-hidden border-t border-zinc-900/50">
-      {/* Background: Heavy Grain & Subtle Glow */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
 
       <div className="container relative mx-auto max-w-6xl px-8 md:px-12 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-32">
-          {/* Brand Cluster */}
           <div className="lg:col-span-5 space-y-10">
             <motion.div
               initial={{ opacity: 0 }}
@@ -58,7 +56,6 @@ export function Footer() {
               High-performance systems for high-stakes operations.
             </p>
 
-            {/* Social with Glow Effect */}
             <div className="flex gap-4">
               {[Github, Linkedin, Twitter, Mail].map((Icon, i) => (
                 <motion.a
@@ -74,7 +71,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links */}
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12">
             {sections.map((section, idx) => (
               <motion.div
@@ -112,16 +108,15 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar: The "Control Room" Feel */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-wrap justify-center md:justify-start items-center gap-6 text-[10px] font-sans font-bold text-zinc-700 uppercase tracking-[0.2em]">
             <span className="flex items-center gap-2">
               <Globe className="h-3 w-3 text-emerald-500 animate-pulse" />©{" "}
-              {currentYear} System.All_Rights_Reserved
+              {currentYear} System All Rights Reserved
             </span>
             <span className="hidden md:block h-1 w-1 bg-zinc-800 rounded-full" />
             <span className="hover:text-zinc-400 transition-colors cursor-crosshair">
-              Loc: Jakarta_IDN [6.2088° S, 106.8456° E]
+              Location: Jakarta Indonesia [6.2088° S, 106.8456° E]
             </span>
           </div>
 
@@ -133,16 +128,15 @@ export function Footer() {
                 className="text-[10px] font-sans font-bold text-zinc-700 hover:text-sky-500 transition-colors uppercase tracking-[0.3em] relative group"
               >
                 {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-sky-500 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-sky-500 transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Extreme Bottom Aesthetic */}
       <div className="mt-20 w-full flex flex-col items-center">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-zinc-900 to-transparent" />
+        <div className="w-full h-px bg-linear-to-r from-transparent via-zinc-900 to-transparent" />
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.2 }}

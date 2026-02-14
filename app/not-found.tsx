@@ -25,7 +25,7 @@ export default function NotFound() {
         }}
       />
 
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[40px_40px] mask-image[radial-gradient(ellipse_at_center,black,transparent_80%)]" />
 
       <div className="relative z-10 text-center px-6">
         <motion.div
